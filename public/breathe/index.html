@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A configurable guided breathing timer.">
+    <title>Breathing Room — Daymark</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/common.js" defer></script>
+    <script src="/js/breathing.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>Daymark</span>
+      </a>
+      <a class="back-link" href="/">Back to all apps</a>
+    </header>
+
+    <main class="app-main">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">Pause · breathe · return</p>
+          <h1>Breathing Room</h1>
+          <p>A simple guided rhythm for moments when you want to slow down and begin again with a clearer head.</p>
+        </div>
+        <div class="shortcut-chip"><kbd>Space</kbd> start or pause</div>
+      </section>
+
+      <div class="timer-layout">
+        <section class="panel timer-stage" aria-label="Breathing guide">
+          <div class="breath-visual" id="breath-visual">
+            <div class="breath-ring" aria-hidden="true"></div>
+            <div class="breath-core" aria-hidden="true"></div>
+            <div class="breath-copy" aria-live="polite">
+              <span class="phase-label" id="phase-label">Ready</span>
+              <span class="phase-time" id="phase-time">Press start</span>
+            </div>
+          </div>
+          <div class="session-stats">
+            <span>Cycles: <strong id="cycle-count">0</strong></span>
+            <span>Session: <strong id="session-time">00:00</strong></span>
+          </div>
+        </section>
+
+        <aside class="panel timer-settings">
+          <h2>Your rhythm</h2>
+          <p class="settings-copy">Set the length of each phase. Changes apply when the timer is reset.</p>
+          <div class="field">
+            <label for="inhale-duration">Inhale</label>
+            <input id="inhale-duration" class="duration-input" type="number" min="1" max="20" step="1" value="4">
+            <span class="count-label">seconds</span>
+          </div>
+          <div class="field">
+            <label for="hold-duration">Hold</label>
+            <input id="hold-duration" class="duration-input" type="number" min="0" max="20" step="1" value="4">
+            <span class="count-label">seconds · 0 skips this phase</span>
+          </div>
+          <div class="field">
+            <label for="exhale-duration">Exhale</label>
+            <input id="exhale-duration" class="duration-input" type="number" min="1" max="20" step="1" value="4">
+            <span class="count-label">seconds</span>
+          </div>
+          <p class="count-label" id="cycle-duration">One cycle · 12 seconds</p>
+          <div class="timer-actions">
+            <button class="button button-primary" id="timer-toggle" type="button">Start</button>
+            <button class="button button-secondary" id="timer-reset" type="button">Reset</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

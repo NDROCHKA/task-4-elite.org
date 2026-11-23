@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track daily moods and reflections.">
+    <title>Mood Journal — Daymark</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/common.js" defer></script>
+    <script src="/js/mood.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>Daymark</span>
+      </a>
+      <a class="back-link" href="/">Back to all apps</a>
+    </header>
+
+    <main class="app-main">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">A moment of reflection</p>
+          <h1>Mood Journal</h1>
+          <p>Check in with yourself once a day. A number captures the feeling; a note helps you remember the story.</p>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <aside class="panel form-panel">
+          <h2 id="mood-form-title">Today's check-in</h2>
+          <p class="form-copy" id="mood-form-copy">Choose the score that feels closest.</p>
+          <form id="mood-form">
+            <div class="field">
+              <label for="mood-date">Date</label>
+              <input id="mood-date" type="date" required>
+            </div>
+            <fieldset class="field" style="border: 0; padding: 0;">
+              <legend class="field-label" style="margin-bottom: 8px;">Mood level</legend>
+              <div class="mood-picker">
+                <label class="mood-option"><input type="radio" name="mood" value="1" required><span title="Very low">1</span></label>
+                <label class="mood-option"><input type="radio" name="mood" value="2"><span title="Low">2</span></label>
+                <label class="mood-option"><input type="radio" name="mood" value="3"><span title="Neutral">3</span></label>
+                <label class="mood-option"><input type="radio" name="mood" value="4"><span title="Good">4</span></label>
+                <label class="mood-option"><input type="radio" name="mood" value="5"><span title="Great">5</span></label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="mood-note">Note <span class="count-label">optional</span></label>
+              <textarea id="mood-note" maxlength="500" placeholder="What shaped your day?"></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="mood-submit" type="submit">Save check-in</button>
+              <button class="button button-secondary is-hidden" id="mood-cancel" type="button">Cancel</button>
+            </div>
+          </form>
+        </aside>
+
+        <section class="panel list-panel" aria-labelledby="journal-title">
+          <div class="list-toolbar">
+            <div>
+              <h2 id="journal-title">Past entries</h2>
+              <span class="count-label" id="mood-count">0 entries</span>
+            </div>
+            <div class="toolbar-controls">
+              <label>
+                <span class="is-hidden">Filter by mood</span>
+                <select id="mood-filter">
+                  <option value="all">All moods</option>
+                  <option value="good">Good · 4–5</option>
+                  <option value="neutral">Neutral · 3</option>
+                  <option value="low">Low · 1–2</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="entry-grid" id="mood-list" aria-live="polite">
+            <div class="loading-state">Loading your journal…</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

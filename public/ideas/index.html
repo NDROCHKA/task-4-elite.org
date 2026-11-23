@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Capture and manage content ideas.">
+    <title>Idea Studio — Daymark</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/common.js" defer></script>
+    <script src="/js/ideas.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>Daymark</span>
+      </a>
+      <a class="back-link" href="/">Back to all apps</a>
+    </header>
+
+    <main class="app-main">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">From spark to publish</p>
+          <h1>Idea Studio</h1>
+          <p>Capture ideas before they disappear, give each one a format, and keep its progress visible.</p>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <aside class="panel form-panel">
+          <h2 id="idea-form-title">Capture an idea</h2>
+          <p class="form-copy" id="idea-form-copy">Rough is welcome. You can shape it later.</p>
+          <form id="idea-form">
+            <div class="field">
+              <label for="idea-title">Title</label>
+              <input id="idea-title" type="text" maxlength="120" placeholder="e.g. CSS grid in 60 seconds" required>
+            </div>
+            <div class="field">
+              <label for="idea-description">Description <span class="count-label">optional</span></label>
+              <textarea id="idea-description" maxlength="700" placeholder="Add the angle, hook, or key points…"></textarea>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="idea-type">Type</label>
+                <select id="idea-type">
+                  <option value="Video">Video</option>
+                  <option value="Blog">Blog</option>
+                  <option value="Post">Post</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="idea-status">Status</label>
+                <select id="idea-status">
+                  <option value="Draft">Draft</option>
+                  <option value="Published">Published</option>
+                  <option value="Archived">Archived</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="idea-submit" type="submit">Add idea</button>
+              <button class="button button-secondary is-hidden" id="idea-cancel" type="button">Cancel</button>
+            </div>
+          </form>
+        </aside>
+
+        <section class="panel list-panel" aria-labelledby="ideas-title">
+          <div class="list-toolbar">
+            <div>
+              <h2 id="ideas-title">Idea pipeline</h2>
+              <span class="count-label" id="idea-count">0 ideas</span>
+            </div>
+            <div class="toolbar-controls">
+              <label>
+                <span class="is-hidden">Filter by type</span>
+                <select id="type-filter">
+                  <option value="all">All types</option>
+                  <option value="Video">Video</option>
+                  <option value="Blog">Blog</option>
+                  <option value="Post">Post</option>
+                </select>
+              </label>
+              <label>
+                <span class="is-hidden">Filter by status</span>
+                <select id="status-filter">
+                  <option value="all">All statuses</option>
+                  <option value="Draft">Draft</option>
+                  <option value="Published">Published</option>
+                  <option value="Archived">Archived</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="entry-grid" id="idea-list" aria-live="polite">
+            <div class="loading-state">Loading your ideas…</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

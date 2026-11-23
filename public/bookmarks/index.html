@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Save and organize useful bookmarks.">
+    <title>Bookmark Library — Daymark</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/common.js" defer></script>
+    <script src="/js/bookmarks.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">D</span>
+        <span>Daymark</span>
+      </a>
+      <a class="back-link" href="/">Back to all apps</a>
+    </header>
+
+    <main class="app-main">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">Save it for later</p>
+          <h1>Bookmark Library</h1>
+          <p>A calm home for the links worth keeping. Add a few tags so future-you can find them in seconds.</p>
+        </div>
+        <div class="shortcut-chip" aria-label="Keyboard shortcuts">
+          <kbd>/</kbd> search
+          <kbd>Ctrl</kbd> + <kbd>Enter</kbd> save
+        </div>
+      </section>
+
+      <div class="workspace">
+        <aside class="panel form-panel">
+          <h2 id="form-title">New bookmark</h2>
+          <p class="form-copy" id="form-copy">Keep a useful page close at hand.</p>
+          <form id="bookmark-form">
+            <div class="field">
+              <label for="bookmark-title">Title</label>
+              <input id="bookmark-title" name="title" type="text" maxlength="100" placeholder="e.g. MDN Web Docs" required>
+            </div>
+            <div class="field">
+              <label for="bookmark-url">URL</label>
+              <input id="bookmark-url" name="url" type="url" placeholder="https://example.com" required>
+            </div>
+            <div class="field">
+              <label for="bookmark-tags">Tags</label>
+              <input id="bookmark-tags" name="tags" type="text" maxlength="200" placeholder="dev, reference, css">
+              <span class="count-label">Separate tags with commas</span>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="submit-button" type="submit">Add bookmark</button>
+              <button class="button button-secondary is-hidden" id="cancel-button" type="button">Cancel</button>
+            </div>
+          </form>
+        </aside>
+
+        <section class="panel list-panel" aria-labelledby="bookmark-list-title">
+          <div class="list-toolbar">
+            <div>
+              <h2 id="bookmark-list-title">Saved links</h2>
+              <span class="count-label" id="bookmark-count">0 bookmarks</span>
+            </div>
+            <div class="toolbar-controls">
+              <label class="search-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <span class="is-hidden">Search bookmarks</span>
+                <input id="bookmark-search" type="search" placeholder="Search title, URL, or tag">
+              </label>
+            </div>
+          </div>
+          <div class="entry-grid" id="bookmark-list" aria-live="polite">
+            <div class="loading-state">Loading your bookmarks…</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
